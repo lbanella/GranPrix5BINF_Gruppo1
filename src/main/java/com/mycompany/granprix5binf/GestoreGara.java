@@ -11,6 +11,6 @@ package com.mycompany.granprix5binf;
 public class GestoreGara{
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        System.out.println("Hello ciao!");
     }
 }
