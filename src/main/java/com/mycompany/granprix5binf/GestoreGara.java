@@ -6,7 +6,7 @@ package com.mycompany.granprix5binf;
 
 /**
  *
- * @author Utente
+ * @author Banella Lorenzo,Moroni Marco,Benazza Adile
  */
 public class GestoreGara{
     public static void main(String[] args) {
