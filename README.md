@@ -1,17 +1,25 @@
-Autore-collaboratore: **[Lorenzo Banella](https://github.com/lbanella)**
 
-Autore-collaboratore: **[Marco Moroni](https://github.com/MarcoMoro16)**
+# Informazioni sul Progetto
 
-Autore-collaboratore: **[Adile Benazza](https://github.com/Eidol469)**
+## Collaboratori
+- **Lorenzo Banella**
+  - [GitHub](https://github.com/lbanella)
 
-Docente:  **[Monica Ciuchetti](https://github.com/mciuchetti)**
+- **Marco Moroni**
+  - [GitHub](https://github.com/MarcoMoro16)
 
-Docente di laboratorio:  **Francesco Amendola**
+- **Adile Benazza**
+  - [GitHub](https://github.com/Eidol469)
 
-Anno scolastico:  **2023/2024**
+## Guida Didattica
+- **Docente: Monica Ciuchetti**
+  - [GitHub](https://github.com/mciuchetti)
 
-Classe: **5BINF** 
+- **Docente di Laboratorio: Francesco Amendola**
 
-Corso : **TPSIT**
-
-Istituto: **[ITTS A. Volta](https://www.avoltapg.edu.it/)** Perugia (PG), Italia
+## Dettagli Scolastici
+- **Anno Scolastico: 2023/2024**
+- **Classe: 5BINF**
+- **Corso: TPSIT**
+- **Istituto: [ITTS A. Volta](https://www.avoltapg.edu.it/)**
+  - *Perugia (PG), Italia*
