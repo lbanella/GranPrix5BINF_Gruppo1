@@ -4,6 +4,12 @@ import java.io.*;
 import java.time.Duration;
 import java.util.*;
 
+/**
+ *
+ * @author Banella Lorenzo,Moroni Marco,Benazza Adile  5BINF ITTS Alessandro Volta Perugia
+ * @version 14/02/2024
+*/
+
 public class Macchina extends Thread {
 
 	private String nome;

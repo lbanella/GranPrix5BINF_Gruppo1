@@ -3,7 +3,6 @@ package com.mycompany.granprix5binf;
 import java.io.*;
 import java.util.*;
 
-
 /**
  *
  * @author Banella Lorenzo,Moroni Marco,Benazza Adile  5BINF ITTS Alessandro Volta Perugia
