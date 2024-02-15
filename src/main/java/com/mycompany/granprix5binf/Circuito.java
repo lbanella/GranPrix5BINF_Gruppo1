@@ -63,5 +63,12 @@ public class Circuito {
         public int getNumeroPitStopMinimi() {
             return numeroPitStopMinimi;
         }
+
+        @Override
+        public String toString() {
+            return "Circuito{" + "nome=" + nome + ", lunghezza=" + lunghezza + ", numeroMacchinePartecipanti=" + numeroMacchinePartecipanti + ", numeroGiri=" + numeroGiri + ", numeroPitStopMinimi=" + numeroPitStopMinimi + '}';
+        }
+        
+        
         
     }
