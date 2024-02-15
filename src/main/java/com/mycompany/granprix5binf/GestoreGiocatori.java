@@ -33,6 +33,10 @@ public class GestoreGiocatori {
 	public boolean formUtente() {
 		throw new UnsupportedOperationException("The method is not implemented yet.");
 	}
+        
+        public boolean effettuaRegistrazione() {
+		throw new UnsupportedOperationException("The method is not implemented yet.");
+	}
 
 	public boolean effettuaLogin() {
 		throw new UnsupportedOperationException("The method is not implemented yet.");
