@@ -90,6 +90,11 @@ public class Macchina extends Thread {
 		return giriDisputati;
 	}
 
+        public void setGiriDisputati(int giriDisputati) {
+            this.giriDisputati = giriDisputati;
+        }
+        
+        
 	public int getGiriDaDisputare() {
 		return giriDaDisputare;
 	}
