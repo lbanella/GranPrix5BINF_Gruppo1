@@ -1,7 +1,7 @@
 package com.mycompany.granprix5binf;
-
 import java.io.*;
 import java.util.*;
+
 
 /**
  *
@@ -9,25 +9,31 @@ import java.util.*;
  * @version 14/02/2024
 */
 
-public class Giocatore {
+public class Giocatore implements Serializable{
 
 	private String username;
 	private String password;
 
-	public Giocatore(String username, String password, String verme) {
-		throw new UnsupportedOperationException("The method is not implemented yet.");
+	public Giocatore() {
+                Scanner scanner = new Scanner(System.in);
+                System.out.println("Inserisci l'username");
+		this.username =  scanner.nextLine();
+                 System.out.println("Inserisci il verme che ti servirà a cifrarti la password");
+		Cifrario cifrario = new Cifrario(scanner.nextLine().toUpperCase());
+                System.out.println("Inserisci la password che poi veràà cifrata (quando vorrai loggarti dovrai scriverla tutta maiuscola)");
+		this.password = cifrario.cifra(scanner.nextLine().toUpperCase());
 	}
-
+        
 	public String getUsername() {
-		throw new UnsupportedOperationException("The method is not implemented yet.");
+		return username;
 	}
 
 	public String getPassword() {
-		throw new UnsupportedOperationException("The method is not implemented yet.");
+		return password;
 	}
-
-	public String toString() {
-		throw new UnsupportedOperationException("The method is not implemented yet.");
-	}
+        
+        public String toString(){
+            return "Username : " + username + " Password : "+ password;
+        }
 
 }
