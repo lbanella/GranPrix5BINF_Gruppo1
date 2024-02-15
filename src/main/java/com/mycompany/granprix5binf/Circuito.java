@@ -35,11 +35,11 @@ public class Circuito {
                 this.numeroGiri = scanner.nextInt();
             }while (this.numeroGiri < 10);
             
-             
+            
             do {
-               System.out.println("Inserisci il numero minimo di pit stop minimi 1 max 3:");
+                System.out.println("Inserisci il numero minimo di pit stop minimi 1 max 3:");
                 this.numeroPitStopMinimi = scanner.nextInt();
-            }while (this.numeroPitStopMinimi >=1 && numeroPitStopMinimi <=3);
+            }while  (numeroPitStopMinimi != 1 && numeroPitStopMinimi != 2 && numeroPitStopMinimi != 3);
             
               
 	}
