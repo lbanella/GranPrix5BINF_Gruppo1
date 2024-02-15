@@ -3,6 +3,7 @@ package com.mycompany.granprix5binf;
 import java.io.*;
 import java.util.*;
 
+
 /**
  *
  * @author Banella Lorenzo,Moroni Marco,Benazza Adile  5BINF ITTS Alessandro Volta Perugia
@@ -17,18 +18,37 @@ public class Vigenere implements Runnable{
     private int fc;
     private Matrice matrix;
 
-    
+    /**
+     * 
+     * @param ir 
+     * @param fr
+     * @param ic
+     * @param fc
+     * @param matrix 
+     */
     public Vigenere(int ir, int fr, int ic, int fc, Matrice matrix) {
-        throw new UnsupportedOperationException("The method is not implemented yet.");
+        this.ir = ir;
+        this.fr = fr;
+        this.ic = ic;
+        this.fc = fc;
+        this.matrix = matrix;
     }
 
     @Override
     public void run() {
-       throw new UnsupportedOperationException("The method is not implemented yet.");
+        popola();
     }
 
     private void popola(){
-        throw new UnsupportedOperationException("The method is not implemented yet.");
+        int c,r,car;
+        for(r=ir; r<fr; r++) {
+            for(c=ic; c<fc; c++) {
+                car = r + c + 65;
+                if(car>90) {
+                    car = car - 26;
+                }
+                this.matrix.setElemento(r, c, car);
+            }
+        }
     }
 }
-
