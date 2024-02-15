@@ -1,7 +1,7 @@
 package com.mycompany.granprix5binf;
-
 import java.io.*;
 import java.util.*;
+
 
 /**
  *
@@ -16,23 +16,41 @@ public class Pilota {
 	private String scuderia;
 
 	public Pilota() {
-            throw new UnsupportedOperationException("The method is not implemented yet.");
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Inserisci il nome del pilota :");
+           
+            this.nome = scanner.next();
+
+            System.out.println("Inserisci il cognome del pilota :");
+           
+            this.cognome = scanner.next();
+
+            System.out.println("Inserisci la scuderia del pilota :");
+          
+            this.scuderia = scanner.next();
+            
+            
+            
+            
+            
 	}
 
 	public String getNome() {
-            throw new UnsupportedOperationException("The method is not implemented yet.");
+		return nome;
 	}
 
 	public String getCognome() {
-		throw new UnsupportedOperationException("The method is not implemented yet.");
+		return cognome;
 	}
+	
 
 	public String getScuderia() {
-		throw new UnsupportedOperationException("The method is not implemented yet.");
+		return scuderia;
 	}
 
+        @Override
 	public String toString() {
-		throw new UnsupportedOperationException("The method is not implemented yet.");
+		return nome+"  "+cognome+" della scuderia :"+scuderia;
 	}
 
 }
