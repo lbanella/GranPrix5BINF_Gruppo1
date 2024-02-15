@@ -156,11 +156,43 @@ public class Macchina extends Thread {
 	}
 
 	public void pitStop() {
-		//implementare logica;
+            Random random = new Random();
+            int pitStop =random.nextInt(1,giriDaDisputare);
+            if(pitStopDaFare== pitStop){
+               pitStopFatti++;
+               pitStopInCorso=true;
+               
+         
+               /* durataPit stop in media vanno dagli 1.8 (più veloce di sempre) secondi ai 6(se va male),
+                 sono in milli perchè saranno la durata dello sleep che simulerebbe il pitstop
+                */
+               
+               int durataPitStop=random.nextInt(1500, 6000);
+               try {
+                Thread.sleep(durataPitStop); // Modifica qui l'intervallo se necessario
+                }catch (InterruptedException e) {
+                e.printStackTrace();
+                }
+            }
+             pitStopInCorso = false;
 	}
 
 	public void incidente() {
-		//implementare logica;
+		Random random = new Random();
+            int probabilitaIncidente = random.nextInt(100);
+            if(this.truccata){
+                if (probabilitaIncidente <15) {  // 15% di probabilità di incidente
+                this.incidentata = true;
+                this.running = false;
+     
+            }
+            }else{
+               if (probabilitaIncidente < 5) {  // 5% di probabilità di incidente
+                this.incidentata = true;
+                this.running = false;
+                
+                } 
+            }
 	}
 
 	public void run() {
