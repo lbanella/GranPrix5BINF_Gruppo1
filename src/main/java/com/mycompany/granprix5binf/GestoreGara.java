@@ -19,7 +19,7 @@ public class GestoreGara {
 
 	public static void main(String[] args) {
     	System.out.println("Ciao mondo");
-        }
+    }
 
 	private static void faiScegliereCircuito() {
 		throw new UnsupportedOperationException("The method is not implemented yet.");

@@ -26,61 +26,42 @@ public class Circuito {
             System.out.println("Inserisci la lunghezza del circuito (il valore sarà in km):");
             this.lunghezza = scanner.nextDouble();
             
-            System.out.println("Inseri…
-[17:03, 14/2/2024] banella lore: questo è circuito
-[17:04, 14/2/2024] banella lore: package com.mycompany.granprix5binf;
-import java.io.*;
-import java.util.*;
+            System.out.println("Inserisci il numero di macchine che dovranno gareggiare :");
+            this.numeroMacchinePartecipanti = scanner.nextInt();
 
-
-/**
- *
- * @author Banella Lorenzo,Moroni Marco,Benazza Adile  5BINF ITTS Alessandro Volta Perugia
- * @version 14/02/2024
-*/
-
-public class Pilota {
-
-	private String nome;
-	private String cognome;
-	private String scuderia;
-
-	public Pilota() {
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("Inserisci il nome del pilota :");
-           
-            this.nome = scanner.next();
-
-            System.out.println("Inserisci il cognome del pilota :");
-           
-            this.cognome = scanner.next();
-
-            System.out.println("Inserisci la scuderia del pilota :");
-          
-            this.scuderia = scanner.next();
             
+            do {
+                System.out.println("Inserisci il numero di giri: (minimo 10 )");
+                this.numeroGiri = scanner.nextInt();
+            }while (this.numeroGiri < 10);
             
+             
+            do {
+               System.out.println("Inserisci il numero minimo di pit stop minimi 1 max 3:");
+                this.numeroPitStopMinimi = scanner.nextInt();
+            }while (this.numeroPitStopMinimi >=1 && numeroPitStopMinimi <=3);
             
-            
-            
+              
 	}
 
-	public String getNome() {
-		return nome;
-	}
+        public String getNome() {
+            return nome;
+        }
 
-	public String getCognome() {
-		return cognome;
-	}
-	
+        public double getLunghezza() {
+            return lunghezza;
+        }
 
-	public String getScuderia() {
-		return scuderia;
-	}
+        public int getNumeroMacchinePartecipanti() {
+            return numeroMacchinePartecipanti;
+        }
 
-        @Override
-	public String toString() {
-		return nome+"  "+cognome+" della scuderia :"+scuderia;
-	}
+        public int getNumeroGiri() {
+            return numeroGiri;
+        }
 
-}
+        public int getNumeroPitStopMinimi() {
+            return numeroPitStopMinimi;
+        }
+        
+    }
