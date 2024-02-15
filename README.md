@@ -25,10 +25,10 @@
   - *Perugia (PG), Italia*
 
 
-Spiegazioni delle Classi
+## Spiegazioni delle Classi
 
-Giocatore : nel Costruttore vi è uno Scanner che richiede in input da tastiera gli attributi username e password. I suoi metodi get servirano a GestoreGiocatori per i metodi effettua login ed effettua registrazione.
+- **Giocatore** : nel Costruttore vi è uno Scanner che richiede in input da tastiera gli attributi username e password. I suoi metodi get servirano a GestoreGiocatori per i metodi effettua login ed effettua registrazione.
 
-Giocatore : nel Costruttore vi è uno Scanner che richiede in input da tastiera gli attributi nome,cognome e password. Rappresenta il Pilota della Macchina infatti compare negli attributi della classe Macchina.
+- **Pilota** : nel Costruttore vi è uno Scanner che richiede in input da tastiera gli attributi nome,cognome e password. Rappresenta il Pilota della Macchina infatti compare negli attributi della classe Macchina.
 
 
