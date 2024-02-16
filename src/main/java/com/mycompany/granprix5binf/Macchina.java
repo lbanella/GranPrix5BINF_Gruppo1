@@ -105,12 +105,12 @@ public class Macchina extends Thread {
 
 	public void gareggia() {
             Random random = new Random();
-            double velocitàMedia =0.7343388889;
+           double velocitaMedia =(distanzaDaPercorrereInUnGiro/10)+0.2;
             while (running) {
                 if(this.truccata==true){
-                    distanzaPercorsaInUnGiro = distanzaPercorsaInUnGiro + (random.nextDouble((velocitàMedia*0.6),(velocitàMedia*1.5))*1.5);
+                     distanzaPercorsaInUnGiro = distanzaPercorsaInUnGiro + random.nextDouble((velocitaMedia*0.8),(velocitaMedia*1.5))*2;
                 }else{
-                    distanzaPercorsaInUnGiro = distanzaPercorsaInUnGiro + random.nextDouble((velocitàMedia*0.5),(velocitàMedia*1.5));
+                    distanzaPercorsaInUnGiro = distanzaPercorsaInUnGiro + random.nextDouble((velocitaMedia*0.8),(velocitaMedia*1.5));
                 }
             
                 try {
@@ -195,7 +195,6 @@ public class Macchina extends Thread {
                if (probabilitaIncidente < 5) {  // 5% di probabilità di incidente
                 this.incidentata = true;
                 this.running = false;
-                
                 } 
             }
 	}
@@ -227,7 +226,7 @@ public class Macchina extends Thread {
                 }
                 else if (pitStopFatti == 0 ) {
                     return "La macchina " + getNome() +" (ID " + this.idMacchina + ") guidata da " + this.pilota +  " è al " + giriDisputati +
-                    " giro su " + giriDaDisputare + " giri, ma non ha ancora effettuato nessun pit stop, quindi non potrà terminare la gara ,  "+ 
+                    " giro su " + giriDaDisputare + " giri, ma non ha ancora effettuato nessun pit stop, ("+pitStopFatti+"/" +pitStopDaFare+") quindi non potrà terminare la gara ,  "+ 
                     "Distanza percorsa nel giro "+giriDisputati+ " : "+distanzaPercorsaInUnGiro; 
                     
                 }else if (pitStopFatti < pitStopDaFare && pitStopFatti > 0 ) {
