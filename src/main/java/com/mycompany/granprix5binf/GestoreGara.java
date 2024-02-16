@@ -18,8 +18,17 @@ public class GestoreGara {
 	private static Circuito CircuitoSuCuiSiSvolgeLaGara;
 
 	public static void main(String[] args) {
-    	System.out.println("Ciao mondo");
-    }
+            GestoreGiocatori gestoreGiocatori=new GestoreGiocatori();
+            boolean autenticato = gestoreGiocatori.formUtente();
+
+        if (autenticato) {
+           faiScegliereCircuito();
+            faiScegliereMacchine();
+            avviaGara();
+            moitoraGara();
+            stampaClassificaFinale(); 
+        }
+        }
 
 	private static void faiScegliereCircuito() {
 		throw new UnsupportedOperationException("The method is not implemented yet.");
