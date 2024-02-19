@@ -30,13 +30,18 @@ public class GestoreGara {
         }
         }
 
-	private static void faiScegliereCircuito() {
-		throw new UnsupportedOperationException("The method is not implemented yet.");
-	}
+        private static void faiScegliereCircuito() {
+                CircuitoSuCuiSiSvolgeLaGara =new Circuito();
+            }
 
-	private static void faiScegliereMacchine() {
-		throw new UnsupportedOperationException("The method is not implemented yet.");
-	}
+            private static void faiScegliereMacchine() {
+                listaMacchine = new ArrayList<>();
+                for (int i = 0; i < CircuitoSuCuiSiSvolgeLaGara.getNumeroMacchinePartecipanti(); i++) {
+                    Pilota pilota = new Pilota();
+                    Macchina macchina = new Macchina(pilota, CircuitoSuCuiSiSvolgeLaGara);
+                    listaMacchine.add(macchina);
+                }
+            }
 
 	public static void avviaGara() {
 		throw new UnsupportedOperationException("The method is not implemented yet.");
