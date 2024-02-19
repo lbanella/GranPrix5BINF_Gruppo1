@@ -27,8 +27,31 @@
 
 ## Spiegazioni delle Classi
 
-- **Giocatore** : nel Costruttore vi è uno Scanner che richiede in input da tastiera gli attributi username e password. I suoi metodi get servirano a GestoreGiocatori per i metodi effettua login ed effettua registrazione.
+## Giocatore
 
-- **Pilota** : nel Costruttore vi è uno Scanner che richiede in input da tastiera gli attributi nome,cognome e password. Rappresenta il Pilota della Macchina infatti compare negli attributi della classe Macchina.
+- **Descrizione :**
+  - Rappresenta il giocatore , per giocare ha l' `obbligo`  di `identificarsi`,  se non dispone di un account , `registrarsi` e poi `loggarsi`.
+
+- **Metodi:**
+    - `Giocatore()`  - Serve per istanziare un oggetto Giocatore,utilizza uno Scanner per richiedere in input da tastiera gli attributi:
+        - `username`
+        - `password`
+  - `getUsername()`: Restituisce il valore dell'attributo `username`.
+  - `getPassword()`: Restituisce il valore dell'attributo `password`.
+  - `toString()`: Restituisce una stringa che rappresenta `l'username` e `la password`.
+
+## Pilota
+
+- **Descrizione :**
+  - Rappresenta il pilota che guida l'auto.
 
 
+- **Metodi:**
+    - `Pilota()`  - Serve per istanziare un oggetto Pilota,utilizza uno Scanner per richiedere in input da tastiera gli attributi:
+        - `nome`
+        - `cognome`
+        - `scuderia`
+  - `getNome()`: Restituisce il valore dell'attributo `nome`.
+  - `getCognome()`: Restituisce il valore dell'attributo `password`.
+  -  `getScuderia()`: Restituisce il valore dell'attributo `scuderia`.
+  - `toString()`: Restituisce una stringa che rappresenta il pilota distinguendo `nome` e `cognome` e `scuderia`.
