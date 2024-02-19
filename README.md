@@ -1,5 +1,8 @@
 
 # Informazioni sul Progetto
+> [!CAUTION] 
+> 
+> Questo progetto è ancora in fase di sviluppo e test. 
 
 ## Collaboratori
 - **Lorenzo Banella**
