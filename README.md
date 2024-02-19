@@ -92,11 +92,28 @@
  
 
 - **Metodi:**
- - `Matrice(String verme)`: Inizializza la matrice con la chiave segreta specificata.
-  - `setElemento(int r, int c, int el)`: Imposta un elemento della matrice alla posizione specificata.
-  - `getElemento(int r, int c)`: Ottiene l'elemento della matrice alla posizione specificata.
-  - `stampa()`: Stampa la matrice.
-  - `cifra(String fch)`: Cifra una stringa utilizzando l'algoritmo di Vigenere.
-  - `deCifra(String fcf)`: Decifra una stringa cifrata utilizzando l'algoritmo di Vigenere.
+ - `Matrice(String verme)`: inizializza un oggetto Matrice con la chiave segreta specificata.
+  - `setElemento(int r, int c, int el)`: imposta un elemento della matrice alla posizione specificata.
+  - `getElemento(int r, int c)`: ottiene l'elemento della matrice alla posizione specificata.
+  - `stampa()`: stampa la matrice.
+  - `cifra(String fch)`: `cifra` una stringa utilizzando l'algoritmo di Vigenere.
+  - `deCifra(String fcf)`: `decifra` una stringa cifrata utilizzando l'algoritmo di Vigenere.
+
+ ## Cifrario
+
+- **Descrizione:**
+  - Rappresenta il cifrario basato sull'algoritmo di `Vigenere`.
+  - Utilizza una matrice e quattro oggetti della classe `Vigenere` per cifrare e decifrare messaggi.
+  
+- **Attributi:**
+  - `matrice`: oggetto della classe `Matrice` utilizzato per l'algoritmo di cifratura.
+  - `quadranti`: `ArrayList` contenente `quattro` oggetti della classe `Vigenere`, rappresentanti i quadranti della matrice.
+
 
  
+
+- **Metodi:**
+ - `Cifrario(String verme)`: inizializza l'oggetto `Matrice` e i quadranti della matrice utilizzati per la cifratura.
+  - `cifra(String messaggio)`: `cifra` un messaggio utilizzando l'algoritmo di Vigenere e restituisce la frase criptata.
+  - `decifra(String messaggio)`: `decifra` un messaggio cifrato utilizzando l'algoritmo di Vigenere e restituisce la frase decriptata.
+
