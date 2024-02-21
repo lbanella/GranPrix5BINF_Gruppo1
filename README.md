@@ -141,15 +141,14 @@
   - `numeroPitStopMinimi`: numero minimo di pit stop richiesti (1) numero massimo di pit stop (3).
 
 - **Costruttore:**
-  - `Macchina(Pilota pilota, Circuito circuitoSuCuiDeveGareggiare)`: Inizializza gli attributi della macchina attraverso l'input utente.
-
-- **Metodi:**
-  - `Circuito()`: - inizializza un oggetto Circuito,utilizza uno Scanner per richiedere in input da tastiera gli attributi:
+   - `Circuito()`: - inizializza un oggetto Circuito,utilizza uno Scanner per richiedere in input da tastiera gli attributi:
         - `nome`
         - `lunghezza`
         - `numeroMacchinePartecipanti`
         - `numeroGiri`
         - `numeroPitStopMinimi`
+
+- **Metodi:**
   - `getNome()`: restituisce il nome del circuito.
   - `getLunghezza()`: restituisce la lunghezza del circuito.
   - `getNumeroMacchinePartecipanti()`: restituisce il numero di macchine partecipanti.
@@ -202,3 +201,42 @@
   - `incidente()`: simula un incidente della macchina.
   - `run()`: metodo ereditato dalla classe `Thread`, definisce la logica della gara di una singola macchina.
   - `toString()`: restituisce una stringa dell'oggetto `Macchina` che varia in base all'andamento della macchina in gara
+
+ ## GestoreGiocatori
+
+- **Descrizione:**
+  - Il `GestoreGiocatori` gestisce l'autenticazione dei giocatori, consentendo loro di registrarsi o effettuare il login.
+  - Rappresenta il circuito di gara per il Grand Prix  ed è strettamente collegata alle classi:
+    - `Giocatore`
+    - `GestoreGara`
+
+
+- **Attributi:**
+  - `listaGiocatori`: tutti i giocatori registrati.
+  - `nomeFile`: nome del file dove sono `serializzati` i giocatori.
+
+
+- **Costruttore:**
+  - `GestoreGiocatori()`: inizializza un oggetto GestoreGiocatori.
+
+- **Metodi:**
+- `formUtente()`: mostra un menu per permettere all'utente di registrarsi o effettuare il login, restituendo true se l'utente viene autenticato con successo.
+- `effettuaRegistrazione()`: consente all'utente di registrarsi inserendo username, verme e password, e cripta la password.
+- `effettuaLogin()`: consente all'utente di effettuare il login inserendo username, verme e password, restituendo true se le credenziali sono corrette.
+- `addGiocatore(Giocatore giocatore)`: aggiunge un giocatore alla lista dei giocatori.
+- `esportaGiocatori()`: esporta la lista dei giocatori su file.
+- `importaGiocatori()`: importa la lista dei giocatori da file.
+
+## GestoreGara
+
+Il `GestoreGara` gestisce l'intero processo della gara, dall'inizializzazione alla stampa della classifica finale.
+
+### Metodi principali:
+
+- `main(String[] args)`: Metodo principale che simula l'intero processo della gara.
+- `faiScegliereCircuito()`: permette all'utente di scegliere il Circuito su cui si svolgerà la gara.
+- `faiScegliereMacchine()`: Permette all'utente di scegliere le Macchine che parteciperanno alla gara.
+- `avviaGara()`: avvia la gara, stampando un countdown e facendo partire ogni macchina sulla griglia di partenza.
+- `safetyCar(int giroIncidente)`: simula l'intervento della safety car.
+- `monitoraGara()`: monitora lo svolgimento della gara, gestendo le varie fasi e aggiornando la classifica.
+- `stampaClassificaFinale()`: stampa la classifica finale della gara  esportandola in un file.
