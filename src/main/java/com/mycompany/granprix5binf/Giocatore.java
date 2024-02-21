@@ -14,14 +14,9 @@ public class Giocatore implements Serializable{
 	private String username;
 	private String password;
 
-	public Giocatore() {
-                Scanner scanner = new Scanner(System.in);
-                System.out.println("Inserisci l'username");
-		this.username =  scanner.nextLine();
-                 System.out.println("Inserisci il verme che ti servirà a cifrarti la password");
-		Cifrario cifrario = new Cifrario(scanner.nextLine().toUpperCase());
-                System.out.println("Inserisci la password che poi veràà cifrata (quando vorrai loggarti dovrai scriverla tutta maiuscola)");
-		this.password = cifrario.cifra(scanner.nextLine().toUpperCase());
+	public Giocatore(String username,String password) {
+		this.username =  username;
+		this.password = password;
 	}
         
 	public String getUsername() {
