@@ -9,7 +9,7 @@
   - [GitHub](https://github.com/lbanella)
 
 - **Marco Moroni**
-  - [GitHub](https://github.com/MarcoMoro16)
+  - [GitHub](https://github.com/MarcoMoro16)     
 
 - **Adile Benazza**
   - [GitHub](https://github.com/Eidol469)
@@ -26,6 +26,18 @@
 - **Corso: TPSIT**
 - **Istituto: [ITTS A. Volta](https://www.avoltapg.edu.it/)**
   - *Perugia (PG), Italia*
+
+## Requisiti del Progetto
+
+In previsione del prossimo GrandPrix è necessario progettare un simulatore che consenta l’accesso riservato di ogni giocatore. I dati dei piloti e delle loro auto sono memorizzati in un file, così come quelle dei giocatori. In particolare le password dei giocatori sono cifrate secondo il cifrario di Vigénere.
+
+Ogni giocatore può scegliere il numero di auto da far partire contemporaneamente e il circuito su cui gareggiano. 
+
+Ogni circuito ha una lunghezza definita ed ogni secondo viene percorso un tratto specifico dalle auto in funzione della loro velocità.
+
+Il giocatore può impostare la lunghezza del circuito, il numero di giri necessario al completamento della gara, il numero di possibili pit stop. Può inoltre scegliere di truccare una macchina o di fermarne una per un incidente e se far intervenire ad un certo punto della gara la safety car.
+
+Il giudice di gara deve poter comunicare a tutti i partecipanti e al pubblico l’inizio e la fine della gara. Durante la gara deve mostrare l’avanzamento delle auto e notificare eventuali situazioni anomale. Al termine della gara deve comunicare il vincitore e poi salvare la classifica in un file che potrà essere letto dal giocatore alla fine del gioco.
 
 
 ## Spiegazioni delle Classi
@@ -240,3 +252,9 @@ Il `GestoreGara` gestisce l'intero processo della gara, dall'inizio della gara f
 - `safetyCar(int giroIncidente)`: simula l'intervento della safety car.
 - `monitoraGara()`: monitora lo svolgimento della gara, gestendo le varie fasi e aggiornando la classifica.
 - `stampaClassificaFinale()`: esportandola la classifica finale della gara   in un file.
+
+## Utilizzo
+- Per avviare il programma bisogna eseguire la classe  [GestoreGara.java](https://github.com/lbanella/GranPrix5BINF_Gruppo1/blob/master/src/main/java/com/mycompany/granprix5binf/GestoreGara.java)
+
+## Cronologia del Progetto
+- Per visualizzare tutte le modifiche nel tempo al progetto visualizzare file   [CHANGELOG.md](https://github.com/lbanella/GranPrix5BINF_Gruppo1/blob/master/CHANGELOG.md)
