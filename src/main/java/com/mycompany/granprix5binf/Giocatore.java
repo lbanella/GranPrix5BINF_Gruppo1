@@ -6,7 +6,7 @@ import java.util.*;
 /**
  *
  * @author Banella Lorenzo,Moroni Marco,Benazza Adile  5BINF ITTS Alessandro Volta Perugia
- * @version 14/02/2024
+ * @version 21/02/2024
 */
 
 public class Giocatore implements Serializable{
@@ -14,9 +14,10 @@ public class Giocatore implements Serializable{
 	private String username;
 	private String password;
 
-	public Giocatore(String username,String password) {
+	public Giocatore(String username,String verme,String password) {
 		this.username =  username;
-		this.password = password;
+                Cifrario cifrario = new Cifrario(verme.toUpperCase());
+		this.password = cifrario.cifra(password.toUpperCase());
 	}
         
 	public String getUsername() {
