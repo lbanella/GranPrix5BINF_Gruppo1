@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 /**
  *
  * @author Banella Lorenzo,Moroni Marco,Benazza Adile  5BINF ITTS Alessandro Volta Perugia
- * @version 14/02/2024
+ * @version 21/02/2024
 */
 
 public class GestoreGiocatori {
@@ -36,9 +36,9 @@ public class GestoreGiocatori {
             try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(nomeFileListaGiocatori))) {
                 this.listaGiocatori = (ArrayList<Giocatore>) ois.readObject();
             } catch (FileNotFoundException ex) {
-                Logger.getLogger(GestoreGiocatori.class.getName()).log(Level.SEVERE, null, ex);
+                 //Non ci sono utenti nel sistema,perche non esiste il file 
             } catch (IOException | ClassNotFoundException ex) {
-                Logger.getLogger(GestoreGiocatori.class.getName()).log(Level.SEVERE, null, ex);
+                System.err.println("Errore durante l'importazione dei giocatori: " + ex.getMessage());
             }
 	}
 
@@ -78,30 +78,40 @@ public class GestoreGiocatori {
             return autenticato;
         }
         
-        public boolean effettuaRegistrazione() {
-            boolean registrato=false;
-            Giocatore nuovoGiocatore;
-            do{
-                nuovoGiocatore = new Giocatore();
-                // verifico se l'username è già presente, nell array lista giocatori
-                boolean usernamePresente = false;
-                for (Giocatore giocatore : listaGiocatori) {
-                    if (giocatore.getUsername().equals(nuovoGiocatore.getUsername())) {
-                        usernamePresente = true;
-                        System.out.println("Username gia in uso. Riprova");
-                        break;
-                    }
+        
+    public boolean effettuaRegistrazione(){
+        boolean registrato=false;
+        Giocatore nuovoGiocatore=null;
+        do{
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Inserisci l'username");
+            String username =  scanner.nextLine();
+            
+            System.out.println("Inserisci il verme che ti servirà a cifrarti la password");
+            String verme = scanner.nextLine();
+            
+            System.out.println("Inserisci la password che poi veràà cifrata (quando vorrai loggarti dovrai scriverla tutta maiuscola)");
+            String password = scanner.nextLine();
+            // verifico se l'username è già presente, nell array lista giocatori
+            boolean usernamePresente = false;
+            for (Giocatore giocatore : listaGiocatori) {
+                if (giocatore.getUsername().equals(username)) {
+                    usernamePresente = true;
+                    System.out.println("Username gia in uso. Riprova");
+                    break;
                 }
-                if (!usernamePresente) {
-                    registrato=true;
-                }   
-            }while(!registrato);
+            }
+            if (!usernamePresente) {
+            registrato=true;
+            nuovoGiocatore=new Giocatore(username,verme, password);
+            }
+        }while(!registrato);
                 
-            addGiocatore(nuovoGiocatore);
-            esportaGiocatori();
-            System.out.println("Registrazione completata. Ora puoi effettuare il login.");
-            return registrato;
-	}
+        addGiocatore(nuovoGiocatore);
+        esportaGiocatori();
+        System.out.println("Registrazione completata. Ora puoi effettuare il login.");
+        return registrato;
+        }
 
 	public boolean effettuaLogin() {
              Scanner scanner = new Scanner(System.in);
