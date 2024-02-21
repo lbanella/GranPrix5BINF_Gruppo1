@@ -57,7 +57,7 @@
   - `getNome()`: restituisce il valore dell'attributo `nome`.
   - `getCognome()`: restituisce il valore dell'attributo `password`.
   -  `getScuderia()`: restituisce il valore dell'attributo `scuderia`.
-  - `toString()`: restituisce una stringa che rappresenta il pilota distinguendo `nome` e `cognome` e `scuderia`.
+  - `toString()`: restituisce una stringa che rappresenta il Pilota distinguendo `nome` e `cognome` e `scuderia`.
  ## Vigenere
 
 - **Descrizione :**
@@ -119,4 +119,37 @@
  - `Cifrario(String verme)`: inizializza l'oggetto `Matrice` e i quadranti della matrice utilizzati per la cifratura.
   - `cifra(String messaggio)`: `cifra` un messaggio utilizzando l'algoritmo di Vigenere e restituisce la frase criptata.
   - `decifra(String messaggio)`: `decifra` un messaggio cifrato utilizzando l'algoritmo di Vigenere e restituisce la frase decriptata.
+
+
+
+## Circuito
+
+- **Descrizione:**
+  - Rappresenta il circuito di gara per il Grand Prix  ed è strettamente collegata alle classi:
+    - `Macchina`
+    - `GestoreGara`
+
+
+- **Attributi:**
+  - `nome`: nome del circuito.
+  - `lunghezza`: lunghezza del circuito in chilometri.
+  - `numeroMacchinePartecipanti`: numero di macchine che parteciperanno alla gara.
+  - `numeroGiri`: numero di giri previsti per la gara (minimo 10).
+  - `numeroPitStopMinimi`: numero minimo di pit stop richiesti (1) numero massimo di pit stop (3).
+
+
+
+- **Metodi:**
+  - `Circuito()`: - inizializza un oggetto Circuito,utilizza uno Scanner per richiedere in input da tastiera gli attributi:
+        - `nome`
+        - `lunghezza`
+        - `numeroMacchinePartecipanti`
+        - `numeroGiri`
+        - `numeroPitStopMinimi`
+  - `getNome()`: restituisce il nome del circuito.
+  - `getLunghezza()`: restituisce la lunghezza del circuito.
+  - `getNumeroMacchinePartecipanti()`: restituisce il numero di macchine partecipanti.
+  - `getNumeroGiri()`: restituisce il numero di giri previsti.
+  - `getNumeroPitStopMinimi()`: restituisce il numero minimo di pit stop da fare.
+   - `toString()`: restituisce una stringa che rappresenta il Circuito distinguendo `nome` , `lunghezza` e `numeroMacchinePartecipanti`,`numeroGiri` e `numeroPitStopMinimi` .
 
