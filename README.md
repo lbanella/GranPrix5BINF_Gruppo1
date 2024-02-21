@@ -1,8 +1,8 @@
 
 # Informazioni sul Progetto
-> [!CAUTION] 
+> [!IMPORTANT] 
 > 
-> Questo progetto è ancora in fase di sviluppo e test. 
+> Questo progetto è pronto per essere eseguito.
 
 ## Collaboratori
 - **Lorenzo Banella**
