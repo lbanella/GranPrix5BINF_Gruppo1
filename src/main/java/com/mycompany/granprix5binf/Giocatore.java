@@ -27,6 +27,7 @@ public class Giocatore implements Serializable{
 		return password;
 	}
         
+        @Override
         public String toString(){
             return "Username : " + username + " Password : "+ password;
         }
