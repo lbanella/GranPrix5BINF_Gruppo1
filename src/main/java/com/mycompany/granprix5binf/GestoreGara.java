@@ -154,7 +154,9 @@ public class GestoreGara {
             }
             
             // Aggiungi le macchine incidentate alla fine della classifica
-            classifica.addAll(incidentate);
+            for(Macchina m :incidentate){
+                classifica.add(m);
+            }
         }
 
 	  public static void stampaClassificaFinale() {
@@ -173,7 +175,7 @@ public class GestoreGara {
 
         for (int i = 0; i < classifica.size(); i++) {
             if(classifica.get(i).isIncidentata()){
-                sb.append("| La macchina " + classifica.get(i).getNome() + " guidata da " + classifica.get(i).getPilota()+ "id"+classifica.get(i).getID()  + " è arrivata " + (i + 1) + " perchè incidentata "+ "                                 ");
+                sb.append("| La macchina " + classifica.get(i).getNome() + " guidata da " + classifica.get(i).getPilota()+ "id"+classifica.get(i).getID()  + "non ha terminato la gara perchè incidentata "+ "                                 ");
             }else{
                 sb.append("| La macchina " + classifica.get(i).getNome() + " guidata da " + classifica.get(i).getPilota() + " id " +
                 classifica.get(i).getID() +" è arrivata " + (i + 1) + " tempo: " +
