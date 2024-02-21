@@ -34,11 +34,13 @@
 
 - **Descrizione :**
   - Rappresenta il giocatore , per giocare ha l' `obbligo`  di `identificarsi`,  se non dispone di un account , `registrarsi` e poi `loggarsi`.
-
+   -  È strettamente collegata alle classi:
+    - `GestoreGiocatori`
+    - `GestoreGara`
+ 
+- **Costruttore:**
+  - `Giocatore()`  - inizializza un oggetto Giocatore,all'interno istanzia un oggetto Cifrario che cifrerà la password.
 - **Metodi:**
-    - `Giocatore()`  - inizializza un oggetto Giocatore,utilizza uno Scanner per richiedere in input da tastiera gli attributi:
-        - `username`
-        - `password`
   - `getUsername()`: Restituisce il valore dell'attributo `username`.
   - `getPassword()`: Restituisce il valore dell'attributo `password`.
   - `toString()`: Restituisce una stringa che rappresenta `l'username` e `la password`.
@@ -48,7 +50,8 @@
 - **Descrizione :**
   - Rappresenta il pilota che guida l'auto.
 
-
+- **Costruttore:**
+  - `Macchina(Pilota pilota, Circuito circuitoSuCuiDeveGareggiare)`: Inizializza gli attributi della macchina attraverso l'input utente.
 - **Metodi:**
     - `Pilota()`  : inizializza un oggetto Pilota,utilizza uno Scanner per richiedere in input da tastiera gli attributi:
         - `nome`
@@ -73,10 +76,10 @@
   - `fc`: Indice finale per le colonne.
   - `matrix`: Oggetto della classe `Matrice`.
 
-
+- **Costruttore:**
+   - `Vigenere(int ir, int fr, int ic, int fc, Matrice matrix)`: inizializza un oggetto Vigenere 
 
 - **Metodi:**
-    - `Vigenere(int ir, int fr, int ic, int fc, Matrice matrix)`: inizializza un oggetto Vigenere 
   - `popola()`: popola la matrice secondo l'algoritmo di Vigenere.
   -  `run()`: contiene il metodo `popola()`.
  ## Matrice
@@ -92,10 +95,10 @@
   - `verme`: Stringa che rappresenta la `chiave segreta` per l'algoritmo di cifratura Vigenere.
 
 
- 
+ - **Costruttore:**
+ - `Matrice(String verme)`: inizializza un oggetto Matrice con la chiave segreta specificata.
 
 - **Metodi:**
- - `Matrice(String verme)`: inizializza un oggetto Matrice con la chiave segreta specificata.
   - `setElemento(int r, int c, int el)`: imposta un elemento della matrice alla posizione specificata.
   - `getElemento(int r, int c)`: ottiene l'elemento della matrice alla posizione specificata.
   - `stampa()`: stampa la matrice.
@@ -110,13 +113,13 @@
   
 - **Attributi:**
   - `matrice`: oggetto della classe `Matrice` utilizzato per l'algoritmo di cifratura.
-  - `quadranti`: `ArrayList` contenente `quattro` oggetti della classe `Vigenere`, rappresentanti i quadranti della matrice.
+  - `quadranti`: `ArrayList` contiene `quattro` oggetti della classe `Vigenere`, rappresentanti i quadranti della matrice.
 
 
- 
+ - **Costruttore:**
+  - `Cifrario(String verme)`: inizializza l'oggetto `Cifrario`,inizializza un oggetto Matrice e i quadranti (Vigenere) utilizzati per la cifratura.
 
 - **Metodi:**
- - `Cifrario(String verme)`: inizializza l'oggetto `Matrice` e i quadranti della matrice utilizzati per la cifratura.
   - `cifra(String messaggio)`: `cifra` un messaggio utilizzando l'algoritmo di Vigenere e restituisce la frase criptata.
   - `decifra(String messaggio)`: `decifra` un messaggio cifrato utilizzando l'algoritmo di Vigenere e restituisce la frase decriptata.
 
@@ -137,7 +140,8 @@
   - `numeroGiri`: numero di giri previsti per la gara (minimo 10).
   - `numeroPitStopMinimi`: numero minimo di pit stop richiesti (1) numero massimo di pit stop (3).
 
-
+- **Costruttore:**
+  - `Macchina(Pilota pilota, Circuito circuitoSuCuiDeveGareggiare)`: Inizializza gli attributi della macchina attraverso l'input utente.
 
 - **Metodi:**
   - `Circuito()`: - inizializza un oggetto Circuito,utilizza uno Scanner per richiedere in input da tastiera gli attributi:
@@ -153,3 +157,48 @@
   - `getNumeroPitStopMinimi()`: restituisce il numero minimo di pit stop da fare.
    - `toString()`: restituisce una stringa che rappresenta il Circuito distinguendo `nome` , `lunghezza` e `numeroMacchinePartecipanti`,`numeroGiri` e `numeroPitStopMinimi` .
 
+## Macchina
+
+- **Descrizione:**
+  - Rappresenta una macchina da corsa nche gareggierà nel  Grand Prix.
+  - Estende la classe `Thread` per consentire l'esecuzione concorrente della gara.
+
+- **Attributi:**
+  - `nome`: nome della macchina.
+  - `idMacchina`: id della macchina.
+  - `pilota`: oggetto della classe `Pilota` che guida la macchina.
+  - `running`: booleano che indica se la macchina è in corsa.
+  - `distanzaPercorsaInUnGiro`: distanza percorsa dalla macchina nel giro corrente.
+  - `distanzaDaPercorrereInUnGiro`: distanza totale da percorrere in un giro.
+  - `giriDisputati`: numero di giri  disputati.
+  - `giriDaDisputare`: numero totale di giri da disputare.
+  - `pitStopFatti`: numero di pit stop  effettuati.
+  - `pitStopDaFare`: numero minimo di pit stop da effettuare.
+  - `truccata`: booleano che indica se la macchina è truccata.
+  - `incidentata`: booleano che indica se la macchina è incidentata.
+  - `pitStopInCorso`: booleano che indica se è in corso un pit stop.
+  - `tempoTotaleGara`: durata totale della gara.
+
+- **Costruttore:**
+  - `Macchina(Pilota pilota, Circuito circuitoSuCuiDeveGareggiare)`: inizializza un oggetto Macchina,utilizza uno Scanner per richiedere in input da tastiera gli attributi:
+        - `nome`
+        - `idMacchina`
+        - `truccata`
+
+- **Metodi:**
+  - `getNome()`: restituisce il nome della macchina.
+  - `getPilota()`: restituisce l'oggetto della classe `Pilota` che guida la macchina.
+  - `getID()`: restituisce l'identificatore univoco della macchina.
+  - `getRunning()`: restituisce il flag che indica se la macchina è in corsa.
+  - `getDistanzaPercorsaInUnGiro()`: restituisce la distanza percorsa nel giro corrente.
+  - `setDistanzaPercorsaInUnGiro(double distanzaPercorsaInUnGiro)`: imposta la distanza percorsa nel giro corrente.
+  - `getDistanzaDaPercorrereInUnGiro()`: restituisce la distanza totale da percorrere in un giro.
+  - `getGiriDisputati()`: restituisce il numero di giri  disputati.
+  - `setGiriDisputati(int giriDisputati)`: imposta il numero di giri  disputati.
+  - `getGiriDaDisputare()`: restituisce il numero totale di giri da disputare.
+  - `isIncidentata()`: restituisce il booleano che indica se la macchina è incidentata.
+  - `gareggia()`: simula la corsa della macchina.
+  - `pitStop()`: simula un pit stop della macchina.
+  - `incidente()`: simula un incidente della macchina.
+  - `run()`: metodo ereditato dalla classe `Thread`, definisce la logica della gara di una singola macchina.
+  - `toString()`: restituisce una stringa dell'oggetto `Macchina` che varia in base all'andamento della macchina in gara
