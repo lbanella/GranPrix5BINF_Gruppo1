@@ -175,12 +175,11 @@ public class GestoreGara {
 
         for (int i = 0; i < classifica.size(); i++) {
             if(classifica.get(i).isIncidentata()){
-                sb.append("| La macchina " + classifica.get(i).getNome() + " guidata da " + classifica.get(i).getPilota()+ "id"+classifica.get(i).getID()  + "non ha terminato la gara perchè incidentata "+ "                                 ");
+                sb.append("| La macchina " + classifica.get(i).getNome() + " guidata da " + classifica.get(i).getPilota()+ " id "+classifica.get(i).getID()  + " non ha terminato la gara perchè incidentata "+ "                                 ");
             }else{
                 sb.append("| La macchina " + classifica.get(i).getNome() + " guidata da " + classifica.get(i).getPilota() + " id " +
-                classifica.get(i).getID() +" è arrivata " + (i + 1) + " tempo: " +
-                classifica.get(i).getTempoTotaleGara().toMinutesPart() + " minuti e " +
-                classifica.get(i).getTempoTotaleGara().toSecondsPart() + " secondi." +
+                classifica.get(i).getID() +" , è arrivata " + (i + 1) + " , tempo : " +
+                classifica.get(i).getTempoTotaleGara().toMinutesPart() + " minuti, " +
                 classifica.get(i).getTempoTotaleGara().toMillis() + " ms."+"                                 ");
             }
             sb.append("\n");
