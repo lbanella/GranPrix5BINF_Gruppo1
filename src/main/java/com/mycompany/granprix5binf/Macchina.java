@@ -103,6 +103,12 @@ public class Macchina extends Thread {
 		return incidentata;
 	}
 
+        public Duration getTempoTotaleGara() {
+            return tempoTotaleGara;
+        }
+        
+        
+
 	public void gareggia() {
             Random random = new Random();
            double velocitaMedia =(distanzaDaPercorrereInUnGiro/10)+0.2;
