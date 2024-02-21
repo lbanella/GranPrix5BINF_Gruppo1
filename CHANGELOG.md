@@ -50,4 +50,5 @@ Questo file contiene tutte le modifiche al progetto  [GranPrix](https://github.c
 
 ## [Released] - 21 Febbraio 2024
 - Ultime modifiche classi GestoreGara,GestoreGiocatori,Macchina
+-  JavaDoc,Version e Author aggiornati su tutte le classi.
 - Test della Prima Gara e del file dei Giocatori 
