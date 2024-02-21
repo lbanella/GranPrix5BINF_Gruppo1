@@ -21,13 +21,13 @@ public class GestoreGara {
             GestoreGiocatori gestoreGiocatori=new GestoreGiocatori();
             boolean autenticato = gestoreGiocatori.formUtente();
 
-        if (autenticato) {
-           faiScegliereCircuito();
-            faiScegliereMacchine();
-            avviaGara();
-            moitoraGara();
-            stampaClassificaFinale(); 
-        }
+            if (autenticato) {
+                faiScegliereCircuito();
+                faiScegliereMacchine();
+                avviaGara();
+                moitoraGara();
+                stampaClassificaFinale(); 
+            }
         }
 
         private static void faiScegliereCircuito() {
@@ -44,11 +44,34 @@ public class GestoreGara {
             }
 
 	public static void avviaGara() {
-		throw new UnsupportedOperationException("The method is not implemented yet.");
+            grigliaDiPartenza = new ArrayList<>();
+            for (Macchina r : listaMacchine) {
+                grigliaDiPartenza.add(r);
+            }
+            
+            System.out.println("Benvenuti alla gara svolta sul circuito di "+CircuitoSuCuiSiSvolgeLaGara.getNome());
+            try {
+                Thread.sleep(1000);
+                System.out.println("Pronti");
+                Thread.sleep(1000);
+                System.out.println("Partenza");
+                Thread.sleep(1000);
+                System.out.println("Via");
+                Thread.sleep(1000);
+            }catch (InterruptedException e) {
+                System.err.println(e.getStackTrace());
+            }
+
+            for (Macchina r : grigliaDiPartenza) {
+                r.start();
+            }
 	}
 
 	public static void safetyCar(int giroIncidente) {
-		throw new UnsupportedOperationException("The method is not implemented yet.");
+            for (Macchina r : grigliaDiPartenza) {
+               r.setGiriDisputati(giroIncidente);
+               r.setDistanzaPercorsaInUnGiro(0.0);
+            }
 	}
 
 	public static void moitoraGara() {
