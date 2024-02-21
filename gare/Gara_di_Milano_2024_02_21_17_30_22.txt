@@ -1,7 +1,0 @@
------------------------------------------------------------------------------------------------
-|               Gara corsa a  Milano, Svolta : 2024-02-21 17:30:22                                 
------------------------------------------------------------------------------------------------
-| La macchina FT22 guidata da Lorenzo  Banella della scuderia :Ferrariid1 è arrivata 1 perchè incidentata                                  
-| La macchina Sasso guidata da Charles  Leclerc della scuderia :Ferrarriid3 è arrivata 2 perchè incidentata                                  
-| La macchina Turbo guidata da Sebastian  Vettel della scuderia :Astonid2 è arrivata 3 perchè incidentata                                  
------------------------------------------------------------------------------------------------
