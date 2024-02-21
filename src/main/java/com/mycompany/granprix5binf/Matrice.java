@@ -7,7 +7,7 @@ import java.util.*;
 /**
  *
  * @author Banella Lorenzo,Moroni Marco,Benazza Adile  5BINF ITTS Alessandro Volta Perugia
- * @version 14/02/2024
+ * @version 21/02/2024
 */
 
 public class Matrice {
@@ -37,6 +37,7 @@ public class Matrice {
     /**
      * @param  r
      * @param  c
+     * @return mv[r][c]
      */
 
     public char getElemento(int r, int c) {
@@ -94,7 +95,7 @@ public class Matrice {
      * @return fcf
      */
 
-public String deCifra(String fcf){
+    public String deCifra(String fcf){
         String fch="";
 
         int k,j,col,row;

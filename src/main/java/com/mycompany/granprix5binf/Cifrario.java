@@ -6,7 +6,7 @@ import java.util.*;
 /**
  *
  * @author Banella Lorenzo,Moroni Marco,Benazza Adile  5BINF ITTS Alessandro Volta Perugia
- * @version 14/02/2024
+  * @version 21/02/2024
 */
 
 public class Cifrario {
@@ -14,9 +14,9 @@ public class Cifrario {
     private ArrayList<Vigenere> quadranti = new ArrayList<Vigenere>();
     
     /**
-     * 
-     * @param verme
-     */
+    * 
+    * @param verme
+    */
     
     public Cifrario(String verme){
     this.matrice = new Matrice(verme);
@@ -44,10 +44,10 @@ public class Cifrario {
     }
     
     /**
-     * 
-     * @param messaggio
-     * @return fraseCriptata
-     */
+    * 
+    * @param messaggio
+    * @return fraseCriptata
+    */
     
     public String cifra(String messaggio){
         String fraseCriptata=matrice.cifra(messaggio);
@@ -55,10 +55,10 @@ public class Cifrario {
     }
     
     /**
-     * 
-     * @param messaggio
-     * @return fraseDecriptata
-     */
+    * 
+    * @param messaggio
+    * @return fraseDecriptata
+    */
     
     public String decifra(String messaggio){
         String fraseDecriptata=matrice.deCifra(messaggio);

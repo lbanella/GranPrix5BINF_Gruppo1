@@ -11,155 +11,170 @@ import java.util.logging.Logger;
 /**
  *
  * @author Banella Lorenzo,Moroni Marco,Benazza Adile  5BINF ITTS Alessandro Volta Perugia
- * @version 14/02/2024
+ * @version 21/02/2024
 */
 
 public class GestoreGara {
 
-	private static ArrayList<Macchina> listaMacchine;
-	private static ArrayList<Macchina> grigliaDiPartenza;
-	private static ArrayList<Macchina> classifica;
-	private static Circuito CircuitoSuCuiSiSvolgeLaGara;
+    private static ArrayList<Macchina> listaMacchine;
+    private static ArrayList<Macchina> grigliaDiPartenza;
+    private static ArrayList<Macchina> classifica;
+    private static Circuito CircuitoSuCuiSiSvolgeLaGara;
 
-	public static void main(String[] args) {
-            GestoreGiocatori gestoreGiocatori=new GestoreGiocatori();
-            boolean autenticato = gestoreGiocatori.formUtente();
+    public static void main(String[] args) {
+        GestoreGiocatori gestoreGiocatori=new GestoreGiocatori();
+        boolean autenticato = gestoreGiocatori.formUtente();
 
-            if (autenticato) {
-                faiScegliereCircuito();
-                faiScegliereMacchine();
-                avviaGara();
-                moitoraGara();
-                stampaClassificaFinale(); 
-            }
+        if (autenticato) {
+            faiScegliereCircuito();
+            faiScegliereMacchine();
+            avviaGara();
+            moitoraGara();
+            stampaClassificaFinale(); 
         }
+    }
         
-        public static void clearScreen() {
-            System.out.print("\033[H\033[2J");
-            System.out.flush();
+    public static void clearScreen() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
+
+    private static void faiScegliereCircuito() {
+        CircuitoSuCuiSiSvolgeLaGara =new Circuito();
+    }
+
+    private static void faiScegliereMacchine() {
+        listaMacchine = new ArrayList<>();
+        for (int i = 0; i < CircuitoSuCuiSiSvolgeLaGara.getNumeroMacchinePartecipanti(); i++) {
+            Pilota pilota = new Pilota();
+            Macchina macchina = new Macchina(pilota, CircuitoSuCuiSiSvolgeLaGara);
+            listaMacchine.add(macchina);
+        }
+    }
+
+    public static void avviaGara() {
+        grigliaDiPartenza = new ArrayList<>();
+        for (Macchina r : listaMacchine) {
+            grigliaDiPartenza.add(r);
+        }
+            
+        System.out.println("Benvenuti alla gara svolta sul circuito di "+CircuitoSuCuiSiSvolgeLaGara.getNome());
+        try {
+            Thread.sleep(1000);
+            System.out.println("Pronti");
+            Thread.sleep(1000);
+            System.out.println("Partenza");
+            Thread.sleep(1000);
+            System.out.println("Via");
+            Thread.sleep(1000);
+        }catch (InterruptedException e) {
+            System.err.println(e.getStackTrace());
         }
 
-        private static void faiScegliereCircuito() {
-                CircuitoSuCuiSiSvolgeLaGara =new Circuito();
-            }
+        for (Macchina r : grigliaDiPartenza) {
+            r.start();
+        }
+    }
 
-            private static void faiScegliereMacchine() {
-                listaMacchine = new ArrayList<>();
-                for (int i = 0; i < CircuitoSuCuiSiSvolgeLaGara.getNumeroMacchinePartecipanti(); i++) {
-                    Pilota pilota = new Pilota();
-                    Macchina macchina = new Macchina(pilota, CircuitoSuCuiSiSvolgeLaGara);
-                    listaMacchine.add(macchina);
+    public static void safetyCar(int giroIncidente) {
+        for (Macchina r : grigliaDiPartenza) {
+           r.setGiriDisputati(giroIncidente);
+           r.setDistanzaPercorsaInUnGiro(0.0);
+        }
+    }
+
+    public static void moitoraGara() {
+        boolean run = true;
+        int nMacchineArrivate = 0;
+        classifica = new ArrayList<>();
+        ArrayList<Macchina> incidentate = new ArrayList<>();
+
+        while (run) {
+            clearScreen();
+            System.out.println("***************************************");
+            for (Macchina r : listaMacchine) {
+                System.out.println("*  " + r + " *");
+            }
+            System.out.println("***************************************");
+
+
+            //Iteratore che ciclerà sulle macchine in pista
+            Iterator<Macchina> iterator = grigliaDiPartenza.iterator();
+
+            int maxGiriDisputati = 0;
+
+            // Trova il numero massimo di giri disputati tra tutte le macchine
+            while (iterator.hasNext()) {
+                Macchina r = iterator.next();
+                if (r.getGiriDisputati() > maxGiriDisputati) {
+                    maxGiriDisputati = r.getGiriDisputati();
+                }
+            }
+            iterator = grigliaDiPartenza.iterator(); // ripristino l'iteratore
+
+            while (iterator.hasNext()) {
+                Macchina r = iterator.next();
+                if (!r.getRunning() || r.isIncidentata()) {
+                    if (r.isIncidentata()) {
+                        try {
+                            r.join();
+                        } catch (InterruptedException ex) {
+                            Logger.getLogger(GestoreGara.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                       incidentate.add(r);
+                        // Controlla se la macchina incidentata ha gli stessi giri della prima 
+                        if (r.getGiriDisputati() == maxGiriDisputati) {
+                            System.out.println("Safety car in pista ! ATTENDERE 5 secondi e la simulazione ripartirà");
+                            try {
+                                Thread.sleep(5000);
+                             } catch (InterruptedException e) {
+                                System.err.println(e.getStackTrace());
+                            }
+                            safetyCar( r.getGiriDisputati());
+                            System.out.println("Safety car terminata !");
+                        } else {
+                            
+                            try {
+                                Thread.sleep(5000);
+                             } catch (InterruptedException e) {
+                                System.err.println(e.getStackTrace());
+                            }
+                            System.out.println("Safety car in pista ! ATTENDERE 5 secondi e la simulazione ripartirà");
+                            safetyCar(maxGiriDisputati);
+                            System.out.println("Safety car terminata !");
+                        }
+                    } else {
+                        try {
+                            r.join();
+                        } catch (InterruptedException ex) {
+                            Logger.getLogger(GestoreGara.class.getName()).log(Level.SEVERE, null, ex);
+                        }   
+                        classifica.add(r);
+                    }
+                    iterator.remove();
+                    nMacchineArrivate++;
+                }
+
+                if (nMacchineArrivate == listaMacchine.size()) {
+                    run = false;
+                    break;
                 }
             }
 
-	public static void avviaGara() {
-            grigliaDiPartenza = new ArrayList<>();
-            for (Macchina r : listaMacchine) {
-                grigliaDiPartenza.add(r);
-            }
-            
-            System.out.println("Benvenuti alla gara svolta sul circuito di "+CircuitoSuCuiSiSvolgeLaGara.getNome());
             try {
-                Thread.sleep(1000);
-                System.out.println("Pronti");
-                Thread.sleep(1000);
-                System.out.println("Partenza");
-                Thread.sleep(1000);
-                System.out.println("Via");
-                Thread.sleep(1000);
-            }catch (InterruptedException e) {
+                Thread.sleep(1500); // 1000 ms = 1 sec
+            } catch (InterruptedException e) {
                 System.err.println(e.getStackTrace());
             }
-
-            for (Macchina r : grigliaDiPartenza) {
-                r.start();
-            }
-	}
-
-	public static void safetyCar(int giroIncidente) {
-            for (Macchina r : grigliaDiPartenza) {
-               r.setGiriDisputati(giroIncidente);
-               r.setDistanzaPercorsaInUnGiro(0.0);
-            }
-	}
-
-	public static void moitoraGara() {
-            boolean run = true;
-            int nMacchineArrivate = 0;
-            classifica = new ArrayList<>();
-            ArrayList<Macchina> incidentate = new ArrayList<>();
-
-            while (run) {
-                clearScreen();
-                System.out.println("***************************************");
-                for (Macchina r : listaMacchine) {
-                    System.out.println("*  " + r + " *");
-                }
-                System.out.println("***************************************");
-
-
-                //Iteratore che ciclerà sulle macchine in pista
-                Iterator<Macchina> iterator = grigliaDiPartenza.iterator();
-
-                int maxGiriDisputati = 0;
-
-                // Trova il numero massimo di giri disputati tra tutte le macchine
-                while (iterator.hasNext()) {
-                    Macchina r = iterator.next();
-                    if (r.getGiriDisputati() > maxGiriDisputati) {
-                        maxGiriDisputati = r.getGiriDisputati();
-                    }
-                }
-                iterator = grigliaDiPartenza.iterator(); // ripristino l'iteratore
-
-                while (iterator.hasNext()) {
-                    Macchina r = iterator.next();
-                    if (!r.getRunning() || r.isIncidentata()) {
-                        if (r.isIncidentata()) {
-                            try {
-                                r.join();
-                            } catch (InterruptedException ex) {
-                                Logger.getLogger(GestoreGara.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-                           incidentate.add(r);
-                            // Controlla se la macchina incidentata ha gli stessi giri della prima 
-                            if (r.getGiriDisputati() == maxGiriDisputati) {
-                                safetyCar( r.getGiriDisputati());
-                            } else {
-                                safetyCar(maxGiriDisputati);
-                            }
-                        } else {
-                            try {
-                                r.join();
-                            } catch (InterruptedException ex) {
-                                Logger.getLogger(GestoreGara.class.getName()).log(Level.SEVERE, null, ex);
-                            }   
-                            classifica.add(r);
-                        }
-                        iterator.remove();
-                        nMacchineArrivate++;
-                    }
-
-                    if (nMacchineArrivate == listaMacchine.size()) {
-                        run = false;
-                        break;
-                    }
-                }
-
-                try {
-                    Thread.sleep(1500); // 1000 ms = 1 sec
-                } catch (InterruptedException e) {
-                    System.err.println(e.getStackTrace());
-                }
-            }
-            
-            // Aggiungi le macchine incidentate alla fine della classifica
-            for(Macchina m :incidentate){
-                classifica.add(m);
-            }
         }
 
-	  public static void stampaClassificaFinale() {
+        // Aggiungi le macchine incidentate alla fine della classifica
+        for(Macchina m :incidentate){
+            classifica.add(m);
+        }
+    }
+
+    public static void stampaClassificaFinale() {
         StringBuilder sb = new StringBuilder();
 
         LocalDateTime oraCorrente = LocalDateTime.now();
@@ -188,7 +203,7 @@ public class GestoreGara {
 
         // Scrivi il risultato della gara in un nuovo file che cambia in base al nome del circuito e  quando è stata svolta
         String nomeFileNuovo = "Gara_di_"+CircuitoSuCuiSiSvolgeLaGara.getNome().replaceAll("[^a-zA-Z0-9_]", "_") + "_" + dataOraFormattata.replaceAll("[^a-zA-Z0-9_]", "_") + ".txt";
-        System.out.println(nomeFileNuovo);
+        System.out.println("Classifica visualizzabile sulla cartella gare, nome file : "+nomeFileNuovo);
         Scrittore scrittore = new Scrittore("gare/"+nomeFileNuovo, sb.toString());
         Thread threadScrittore = new Thread(scrittore);
         threadScrittore.start();

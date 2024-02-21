@@ -1,6 +1,5 @@
 package com.mycompany.granprix5binf;
 import java.io.*;
-import java.util.*;
 
 
 /**
@@ -11,26 +10,50 @@ import java.util.*;
 
 public class Giocatore implements Serializable{
 
-	private String username;
-	private String password;
-
-	public Giocatore(String username,String verme,String password) {
-		this.username =  username;
-                Cifrario cifrario = new Cifrario(verme.toUpperCase());
-		this.password = cifrario.cifra(password.toUpperCase());
-	}
-        
-	public String getUsername() {
-		return username;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-        
-        @Override
-        public String toString(){
-            return "Username : " + username + " Password : "+ password;
-        }
+    private String username;
+    private String password;
+    
+    
+    /**
+    * @param  username
+    * @param  verme
+    * @param  password
+    */
+    
+    public Giocatore(String username,String verme,String password) {
+        this.username =  username;
+        Cifrario cifrario = new Cifrario(verme.toUpperCase());
+        this.password = cifrario.cifra(password.toUpperCase());
+    }
+    
+    
+    /**
+    * 
+    * @return username
+    */
+    
+    public String getUsername() {
+        return username;
+    }
+    
+    /**
+    * 
+    * @return password
+    */
+    
+    public String getPassword() {
+        return password;
+    }
+    
+    
+    /**
+    * 
+    * @return String
+    */
+    
+    @Override
+    public String toString(){
+        return "Username : " + username + " Password : "+ password;
+    }
 
 }

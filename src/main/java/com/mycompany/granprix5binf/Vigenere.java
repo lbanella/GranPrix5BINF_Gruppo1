@@ -7,7 +7,7 @@ import java.util.*;
 /**
  *
  * @author Banella Lorenzo,Moroni Marco,Benazza Adile  5BINF ITTS Alessandro Volta Perugia
- * @version 14/02/2024
+ * @version 21/02/2024
 */
 
 public class Vigenere implements Runnable{
@@ -26,6 +26,7 @@ public class Vigenere implements Runnable{
      * @param fc
      * @param matrix 
      */
+    
     public Vigenere(int ir, int fr, int ic, int fc, Matrice matrix) {
         this.ir = ir;
         this.fr = fr;
