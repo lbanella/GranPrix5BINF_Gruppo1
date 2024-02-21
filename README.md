@@ -228,15 +228,15 @@
 - `importaGiocatori()`: importa la lista dei giocatori da file.
 
 ## GestoreGara
+- **Descrizione:**
+Il `GestoreGara` gestisce l'intero processo della gara, dall'inizio della gara fino  alla stampa della classifica finale.
 
-Il `GestoreGara` gestisce l'intero processo della gara, dall'inizializzazione alla stampa della classifica finale.
-
-### Metodi principali:
+- **Metodi:**
 
 - `main(String[] args)`: Metodo principale che simula l'intero processo della gara.
 - `faiScegliereCircuito()`: permette all'utente di scegliere il Circuito su cui si svolgerà la gara.
-- `faiScegliereMacchine()`: Permette all'utente di scegliere le Macchine che parteciperanno alla gara.
+- `faiScegliereMacchine()`: permette all'utente di scegliere le Macchine che parteciperanno alla gara.
 - `avviaGara()`: avvia la gara, stampando un countdown e facendo partire ogni macchina sulla griglia di partenza.
 - `safetyCar(int giroIncidente)`: simula l'intervento della safety car.
 - `monitoraGara()`: monitora lo svolgimento della gara, gestendo le varie fasi e aggiornando la classifica.
-- `stampaClassificaFinale()`: stampa la classifica finale della gara  esportandola in un file.
+- `stampaClassificaFinale()`: esportandola la classifica finale della gara   in un file.
