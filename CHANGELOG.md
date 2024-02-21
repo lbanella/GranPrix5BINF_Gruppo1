@@ -47,3 +47,7 @@ Questo file contiene tutte le modifiche al progetto  [GranPrix](https://github.c
 ### Changed
 - Aggiornato file README.md
 - Aggiornato file CHANGELOG.md
+
+## [Released] - 21 Febbraio 2024
+- Ultime modifiche classi GestoreGara,GestoreGiocatori,Macchina
+- Test della Prima Gara e del file dei Giocatori 
